@@ -23,6 +23,11 @@ class Usuarios_model extends CI_Model{
     }
 
 
+    public function buscaVendedor($id_usuario){
+        $this->db->where("id",$id_usuario);
+        return $this->db->get("usuarios")->row_array();
+    }
+
 }
 
 ?>
