@@ -13,11 +13,20 @@ class Produtos extends CI_Controller{
     }
 
     public function formulario (){
+       /* $usuario = $this->session->userdata("usuario_logado");
+        if(! $usuario ) {
+            $this->session->set_flashdata("fail", "Voce precisa estar logado!");
+            redirect('/');
+        }*/
+
+        autoriza();
+
         $this->load->view("produtos/formulario");    
     }
 
 
     public function novo(){
+        autoriza();
         $this->form_validation->set_rules("nome", "nome", "trim|required|min_length[5]|callback_nao_tenha_a_palavra_melhor");
         $this->form_validation->set_rules("descricao", "descricao", "trim|required|min_length[10]");
         $this->form_validation->set_rules("preco", "preco", "trim|required");
@@ -44,6 +53,7 @@ class Produtos extends CI_Controller{
     }
 
     public function remove($id){
+        autoriza();
         $usuario_logado = $this->session->userdata("usuario_logado");
         $produto = array(
             "usuario_id" => $usuario_logado["id"],
