@@ -32,7 +32,7 @@
                 <td><?= anchor("produtos/{$produto['id']}", $produto["nome"])?> </td>
                 <td> <?= character_limiter(html_escape($produto["descricao"]),10) ?></td>
                 <td> <?= numeroEmReais( $produto["preco"]) ?></td>
-                <td> <?= anchor("produtos/remove/{$produto['id']}", "Remover", array("class"=>"btn btn-primary"))?></a><td>
+                <td> <?= anchor("produtos/remove/{$produto['id']}", "Remover", array("class"=>"btn btn-primary"))?><td>
             </tr>
 <?php   endforeach   ?>
         </table>
@@ -40,6 +40,7 @@
 
 
         <?= anchor('produtos/formulario', 'Novo Produto', array("class"=>"btn btn-primary"))?>
+        <?= anchor('vendas/', 'Produtos vendidos', array("class"=>"btn btn-primary"))?>
         <?= anchor('login/logout', 'Logout', array("class"=>"btn btn-primary"))?>
 <?php else : ?>
         <h1>Login</h1>

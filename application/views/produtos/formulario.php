@@ -26,6 +26,7 @@
     echo form_error("descricao");
 
     buttonSubmit("Cadastrar Produto");
+    echo anchor("/", "Voltar",array("class"=>"btn btn-primary"));
     echo form_close();
 
 ?>

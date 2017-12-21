@@ -6,9 +6,6 @@ class Produtos extends CI_Controller{
         //$this->output->enable_profiler(TRUE);
         
         $this->load->model("produtos_model");
-        $this->load->helper(
-            array("currency")
-        );
 
         $produtos = $this->produtos_model->getAll();          
         $dados = array("produtos"=> $produtos);
