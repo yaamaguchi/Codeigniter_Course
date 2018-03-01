@@ -9,19 +9,12 @@ class Produtos extends CI_Controller{
 
         $produtos = $this->produtos_model->getAll();          
         $dados = array("produtos"=> $produtos);
-        $this->load->view("produtos/index.php", $dados);
+        $this->load->template("produtos/index.php", $dados);
     }
 
     public function formulario (){
-       /* $usuario = $this->session->userdata("usuario_logado");
-        if(! $usuario ) {
-            $this->session->set_flashdata("fail", "Voce precisa estar logado!");
-            redirect('/');
-        }*/
-
         autoriza();
-
-        $this->load->view("produtos/formulario");    
+        $this->load->template("produtos/formulario");    
     }
 
 
@@ -48,7 +41,7 @@ class Produtos extends CI_Controller{
             $this->session->set_flashdata("success","Produto adicionado com sucesso!");    
             redirect('/');
         }else{
-            $this->load->view("produtos/formulario");
+            $this->load->template("produtos/formulario");    
         }
     }
 
@@ -73,8 +66,8 @@ class Produtos extends CI_Controller{
         $this->load->model("produtos_model");
         $lista = $this->produtos_model->mostra($id);
         $dados = array("dados"=>$lista);
-
-        $this->load->view("produtos/mostra", $dados);
+        
+        $this->load->template("produtos/mostra", $dados);  
     }
 
 
